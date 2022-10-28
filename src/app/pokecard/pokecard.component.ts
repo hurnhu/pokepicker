@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { outputAst } from '@angular/compiler';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { PokeapiService } from '../pokeapi.service';
 import { Pokemon } from '../pokemon';
+import { Species } from '../species';
 
 @Component({
   selector: 'pokecard',
@@ -9,16 +11,44 @@ import { Pokemon } from '../pokemon';
 })
 export class PokecardComponent implements OnInit {
 
-  pokemon!:Pokemon
+  @Input() pokeid:number
+  @Input()
+  selected: boolean = false;
+  @Output() selectedChange = new EventEmitter<boolean>();
+
+  pokemon:Pokemon
+  isChecked:boolean
   constructor(private letGet:PokeapiService) {
+    this.pokeid = 0;
+    this.isChecked = false;
+    this.pokemon = {
+      name: "",
+      height: 0,
+      id: 0,
+      weight: 0,
+      sprites: { 
+          back_default:"",
+          back_female:"",
+          back_shiny:"",
+          back_shiny_female:"",
+          front_default:"",
+          front_female:"",
+          front_shiny:"",
+          front_shiny_female:""
+      },
+      flavor_text_entries: [],
+      types: []
+    }
   }
 
   ngOnInit(): void {
-    this.letGet.getSinglePokemon().subscribe((data)=>{
-      console.log("this is my data")
-      console.log(data)
-      this.pokemon = <Pokemon>data
+    this.letGet.getSinglePokemon(this.pokeid, (singlePokemon) => {
+      this.pokemon = <Pokemon>singlePokemon
     })
   }
 
+  emitLocked(): void{
+    this.selected = !this.selected
+    this.selectedChange.emit(this.selected)
+  }
 }

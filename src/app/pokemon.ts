@@ -1,8 +1,10 @@
+import { Species } from "./species"
+
 export interface Pokemon {
     name: string,
     height: number,
     id: number,
-    weight: number
+    weight: number,
     sprites: { 
         back_default:string,
         back_female:string,
@@ -13,5 +15,6 @@ export interface Pokemon {
         front_shiny:string,
         front_shiny_female:string
     },
-    
+    flavor_text_entries: any[]
+    types: any[]
 }

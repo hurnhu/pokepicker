@@ -3,7 +3,8 @@
   <div class="drawer-content flex flex-col items-center justify-center">
     <!-- Page content here -->
     <label for="my-drawer-2" class="btn btn-primary drawer-button lg:hidden">Open Randomizer</label>
-
+    <!-- <app-alert></app-alert> -->
+    <team-list></team-list>
   </div>
   <div class="drawer-side">
     <label for="my-drawer-2" class="drawer-overlay"></label>
@@ -15,6 +16,7 @@
             PokePicker</h2>
         </a>
         <button class="btn btn-primary" (click)="generateRandomTeam()">Randomize</button>
+        <button class="btn btn-primary" (click)="saveTeam()">Save Team</button>
         <div class="border border-base-300 bg-base-100 rounded-box mt-1 min-w-full">
           <div class="collapse">
             <input type="checkbox" />

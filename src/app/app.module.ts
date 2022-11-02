@@ -9,16 +9,22 @@ import { PokeapiService } from './pokeapi.service';
 import { RandomItemFromArrayPipe } from './random-item-from-array.pipe';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AlertComponent } from './alert/alert.component';
+import { TeamListComponent } from './team-list/team-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PokecardComponent,
-    RandomItemFromArrayPipe
+    RandomItemFromArrayPipe,
+    AlertComponent,
+    TeamListComponent
   ],
   imports: [
     FormsModule,
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
     ServiceWorkerModule.register('ngsw-worker.js', {

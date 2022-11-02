@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { forkJoin, Observable } from 'rxjs';
+import { forkJoin, Observable, of, debounceTime } from 'rxjs';
 import { Pokemon } from './pokemon';
 
 @Injectable({
@@ -36,12 +36,26 @@ export class PokeapiService {
     delete singlePokemon.location_area_encounters
     delete singlePokemon.names
     delete singlePokemon.pal_park_encounters
+    delete singlePokemon.form_descriptions
+    delete singlePokemon.evolves_from_species
+    delete singlePokemon.evolution_chain
+    delete singlePokemon.forms
     singlePokemon.flavor_text_entries = singlePokemon.flavor_text_entries.filter((entry: any) =>{
       if(entry.language.name === "en"){
         return entry;
       }
     })
     return singlePokemon
+  }
+
+  randomIntFromInterval(min: number, max: number): number {
+    return Math.floor(Math.random() * (max - min + 1) + min)
+  }
+
+  toLocalStorage(storageLoc: string, whatToStore: any, loc: number): void{
+    let data = JSON.parse(localStorage.getItem(storageLoc)!)
+    data[loc] = whatToStore
+    localStorage.setItem(storageLoc, JSON.stringify(data))
   }
 
   getSinglePokemon(id: number, callback: (singlePokemon: Pokemon) => void) {
@@ -56,8 +70,11 @@ export class PokeapiService {
       forkJoin([pokemon, flavorText]).subscribe((results)=>{    
         const combined = Object.assign({}, results[0], results[1])
         data[id] = this.prunePokemon(<Pokemon>combined);
-        console.log(data[id])
-        localStorage.setItem('poke-cache', JSON.stringify(data))
+        of(this.toLocalStorage("poke-cache", data[id], id))
+        .pipe(debounceTime(this.randomIntFromInterval(500, 1200)))
+        .subscribe()
+        .unsubscribe()
+        console.log("saving")
         callback(<Pokemon>combined)
       });
     } else {

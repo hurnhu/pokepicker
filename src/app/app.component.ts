@@ -139,6 +139,15 @@ export class AppComponent {
     })
   }
 
+  saveTeam():void {
+    if (localStorage.getItem("saved-teams") === null) {
+      localStorage.setItem('saved-teams', JSON.stringify([]));
+    }
+    let savedTeams = JSON.parse(localStorage.getItem("saved-teams")!)
+    savedTeams.push(this.listOfPokemon)
+    localStorage.setItem('saved-teams', JSON.stringify(savedTeams));
+  }
+
   log(e: any) {
     console.log(e)
   }
@@ -152,8 +161,6 @@ export class AppComponent {
       this.listOfPokemon = []
     }
 
-    console.log("my list")
-    console.log(this.listOfPokemon)
     let len = this.listOfPokemon.length
     if(this.selectedType !== undefined && len < 6){
       this.pokeService.getPokemonIdsByType(this.selectedType.id, (listOfIds) => {        

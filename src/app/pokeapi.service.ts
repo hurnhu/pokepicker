@@ -74,7 +74,6 @@ export class PokeapiService {
         .pipe(debounceTime(this.randomIntFromInterval(500, 1200)))
         .subscribe()
         .unsubscribe()
-        console.log("saving")
         callback(<Pokemon>combined)
       });
     } else {

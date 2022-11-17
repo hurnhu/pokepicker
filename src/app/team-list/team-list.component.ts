@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { TeamService } from '../team.service';
 
 @Component({
   selector: 'team-list',
@@ -7,10 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TeamListComponent implements OnInit {
 
-  teamList: any
+  teamList: Observable<any>
 
-  constructor() {
-    this.teamList = JSON.parse(localStorage.getItem("saved-teams")!)
+  constructor(private teamService:TeamService) {
+    this.teamList = teamService.getTeams()
   }
 
   ngOnInit(): void {

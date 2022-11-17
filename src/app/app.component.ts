@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { PokeapiService } from './pokeapi.service';
 import { List } from './list';
+import { TeamService } from './team.service';
+import { Observable } from 'rxjs';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -112,8 +114,11 @@ export class AppComponent {
   ]
   selectedType: any
   listOfPokemon:List[] = []
+  savedTeams: Observable<any>
 
-  constructor(private pokeService:PokeapiService) {
+
+  constructor(private pokeService:PokeapiService, private teamService:TeamService) {
+    this.savedTeams = this.teamService.getTeams();
   }
 
   ngOnInit(): void {
@@ -140,12 +145,7 @@ export class AppComponent {
   }
 
   saveTeam():void {
-    if (localStorage.getItem("saved-teams") === null) {
-      localStorage.setItem('saved-teams', JSON.stringify([]));
-    }
-    let savedTeams = JSON.parse(localStorage.getItem("saved-teams")!)
-    savedTeams.push(this.listOfPokemon)
-    localStorage.setItem('saved-teams', JSON.stringify(savedTeams));
+    this.teamService.storeNewTeam(this.listOfPokemon);  
   }
 
   log(e: any) {

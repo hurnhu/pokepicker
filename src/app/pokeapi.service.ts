@@ -77,7 +77,6 @@ export class PokeapiService {
         callback(<Pokemon>combined)
       });
     } else {
-      console.log("poke CACHE!")
       callback(<Pokemon>data[id])
     }
   }
@@ -102,7 +101,6 @@ export class PokeapiService {
         callback(pokeTypeCache[type])
       })
     } else {
-      console.log("type CACHE")
       callback(pokeTypeCache[type])
     }
   }

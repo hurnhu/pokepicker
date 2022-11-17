@@ -11,33 +11,11 @@ export class TeamCardComponent implements OnInit {
 
   @Input() team:any
 
-  pokemon:Pokemon
-  constructor(private letGet:PokeapiService) {
+  constructor() {
 
-    this.pokemon = {
-      name: "",
-      height: 0,
-      id: 0,
-      weight: 0,
-      sprites: { 
-          back_default:"",
-          back_female:"",
-          back_shiny:"",
-          back_shiny_female:"",
-          front_default:"",
-          front_female:"",
-          front_shiny:"",
-          front_shiny_female:""
-      },
-      flavor_text_entries: [],
-      types: []
-    }
    }
 
-  ngOnInit(): void {
-    this.letGet.getSinglePokemon(this.pokemon.id, (singlePokemon) => {
-      this.pokemon = <Pokemon>singlePokemon
-    })
+  ngOnInit(): void {  
   }
 
 }

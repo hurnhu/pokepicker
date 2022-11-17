@@ -1,6 +1,6 @@
 <div [id]="pokemon.id" class="card w-full bg-base-100 shadow-xl">
     <div class="card-body">
-        <div class="card-actions justify-end">
+        <div class="card-actions justify-end" *ngIf="mini">
             Lock<button class="btn btn-square btn-sm" (click)="emitLocked()">
                 <span *ngIf="selected">
                     X
@@ -8,7 +8,7 @@
             </button>
         </div>
         <h2 class="card-title justify-center">{{pokemon.name}}</h2>
-        <div tabindex="0" class="collapse collapse-plus border border-base-300 bg-base-100 rounded-box">
+        <div *ngIf="mini" tabindex="0" class="collapse collapse-plus border border-base-300 bg-base-100 rounded-box">
             <div class="collapse-title text-xl font-medium">
                 Description
             </div>

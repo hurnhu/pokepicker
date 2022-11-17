@@ -32,7 +32,6 @@ export class TeamService {
     let savedTeams = this.getTeamFromStorage();
     savedTeams.push(team)
     localStorage.setItem('saved-teams', JSON.stringify(savedTeams));
-    console.log(savedTeams);
     
     this.teams.next(savedTeams);
   }

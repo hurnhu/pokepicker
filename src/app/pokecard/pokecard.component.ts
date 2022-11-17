@@ -14,6 +14,7 @@ export class PokecardComponent implements OnInit {
   @Input() pokeid:number
   @Input()
   selected: boolean = false;
+  @Input() mini: boolean = false;
   @Output() selectedChange = new EventEmitter<boolean>();
 
   pokemon:Pokemon

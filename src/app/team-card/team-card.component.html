@@ -1,12 +1,6 @@
-<div class="card bg-base-100 shadow-xl">
-    <figure class="px-10 pt-10">
-      <img src="https://placeimg.com/400/225/arch" alt="Shoes" class="rounded-xl" />
-    </figure>
-    <div class="card-body items-center text-center">
-      <h2 class="card-title">Shoes!</h2>
-      <p>If a dog chews shoes whose shoes does he choose?</p>
-      <div class="card-actions">
-        <button class="btn btn-primary">Buy Now</button>
-      </div>
+
+  <div class="grid grid-cols-6 gap-4">
+    <div *ngFor="let pokemon of this.team">
+      <pokecard [pokeid]="pokemon.id" [(selected)]="pokemon.selected"></pokecard>
     </div>
   </div>

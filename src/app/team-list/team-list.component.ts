@@ -16,9 +16,6 @@ export class TeamListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
-    console.log("abc")
-    console.log(this.teamList)
     this.teamService.loadTeams()
 
   }

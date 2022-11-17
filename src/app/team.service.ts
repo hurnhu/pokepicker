@@ -11,14 +11,7 @@ export class TeamService {
     if (localStorage.getItem("saved-teams") === null) {
       localStorage.setItem('saved-teams', JSON.stringify([]));
     }
-    let localTeams = JSON.parse(localStorage.getItem("saved-teams")!);
-    console.log("my teams")
-    console.log(localTeams);
-    
-    this.teams.next(localTeams)
-    // let savedTeams = JSON.parse(localStorage.getItem("saved-teams")!)
-    // savedTeams.push(this.listOfPokemon)
-    // localStorage.setItem('saved-teams', JSON.stringify(savedTeams));
+    this.loadTeams()
   }
 
   private teams = new Subject<any>;
@@ -27,10 +20,20 @@ export class TeamService {
     return this.teams.asObservable();
   }
 
+  getTeamFromStorage():any {
+    return JSON.parse(localStorage.getItem("saved-teams")!);
+  }
+
+  loadTeams(): any{
+    this.teams.next(this.getTeamFromStorage())
+  }
+
   storeNewTeam(team:any){
-    let savedTeams = JSON.parse(localStorage.getItem("saved-teams")!)
+    let savedTeams = this.getTeamFromStorage();
     savedTeams.push(team)
     localStorage.setItem('saved-teams', JSON.stringify(savedTeams));
+    console.log(savedTeams);
+    
     this.teams.next(savedTeams);
   }
 }

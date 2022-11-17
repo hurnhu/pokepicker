@@ -19,6 +19,7 @@ export class TeamListComponent implements OnInit {
 
     console.log("abc")
     console.log(this.teamList)
+    this.teamService.loadTeams()
 
   }
 

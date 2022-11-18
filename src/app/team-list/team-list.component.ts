@@ -16,6 +16,7 @@ export class TeamListComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    
     this.teamService.loadTeams()
 
   }

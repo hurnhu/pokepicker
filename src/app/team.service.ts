@@ -25,7 +25,10 @@ export class TeamService {
   }
 
   loadTeams(): any{
-    this.teams.next(this.getTeamFromStorage())
+    let temp = this.getTeamFromStorage()
+    console.log(temp);
+    
+    this.teams.next(temp)
   }
 
   storeNewTeam(team:any){

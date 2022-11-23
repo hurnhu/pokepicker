@@ -43,6 +43,8 @@ export class PokecardComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log(this.mini);
+    
     this.letGet.getSinglePokemon(this.pokeid, (singlePokemon) => {
       this.pokemon = <Pokemon>singlePokemon
     })

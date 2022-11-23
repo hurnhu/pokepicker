@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +14,7 @@ export class TeamService {
     this.loadTeams()
   }
 
-  private teams = new Subject<any>;
+  private teams = new BehaviorSubject({});
   
   getTeams(): Observable<any> {
     return this.teams.asObservable();

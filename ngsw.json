@@ -1,0 +1,81 @@
+{
+  "configVersion": 1,
+  "timestamp": 1669680023948,
+  "index": "https://hurnhu.github.io/pokepicker/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "https://hurnhu.github.io/pokepicker/favicon.ico",
+        "https://hurnhu.github.io/pokepicker/index.html",
+        "https://hurnhu.github.io/pokepicker/main.f7eb02c8f6973fbd.js",
+        "https://hurnhu.github.io/pokepicker/manifest.webmanifest",
+        "https://hurnhu.github.io/pokepicker/polyfills.7fa47ac511bb52d7.js",
+        "https://hurnhu.github.io/pokepicker/runtime.97728a8d9c1e7cda.js",
+        "https://hurnhu.github.io/pokepicker/styles.5cf25525eeb0aad3.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "https://hurnhu.github.io/pokepicker/assets/icons/icon-128x128.png",
+        "https://hurnhu.github.io/pokepicker/assets/icons/icon-144x144.png",
+        "https://hurnhu.github.io/pokepicker/assets/icons/icon-152x152.png",
+        "https://hurnhu.github.io/pokepicker/assets/icons/icon-192x192.png",
+        "https://hurnhu.github.io/pokepicker/assets/icons/icon-384x384.png",
+        "https://hurnhu.github.io/pokepicker/assets/icons/icon-512x512.png",
+        "https://hurnhu.github.io/pokepicker/assets/icons/icon-72x72.png",
+        "https://hurnhu.github.io/pokepicker/assets/icons/icon-96x96.png"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "https://hurnhu.github.io/pokepicker/assets/icons/icon-128x128.png": "dae3b6ed49bdaf4327b92531d4b5b4a5d30c7532",
+    "https://hurnhu.github.io/pokepicker/assets/icons/icon-144x144.png": "b0bd89982e08f9bd2b642928f5391915b74799a7",
+    "https://hurnhu.github.io/pokepicker/assets/icons/icon-152x152.png": "7479a9477815dfd9668d60f8b3b2fba709b91310",
+    "https://hurnhu.github.io/pokepicker/assets/icons/icon-192x192.png": "1abd80d431a237a853ce38147d8c63752f10933b",
+    "https://hurnhu.github.io/pokepicker/assets/icons/icon-384x384.png": "329749cd6393768d3131ed6304c136b1ca05f2fd",
+    "https://hurnhu.github.io/pokepicker/assets/icons/icon-512x512.png": "559d9c4318b45a1f2b10596bbb4c960fe521dbcc",
+    "https://hurnhu.github.io/pokepicker/assets/icons/icon-72x72.png": "c457e56089a36952cd67156f9996bc4ce54a5ed9",
+    "https://hurnhu.github.io/pokepicker/assets/icons/icon-96x96.png": "3914125a4b445bf111c5627875fc190f560daa41",
+    "https://hurnhu.github.io/pokepicker/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
+    "https://hurnhu.github.io/pokepicker/index.html": "f4eae2bfe9664bb143e43ccb89f374fdc1cd1830",
+    "https://hurnhu.github.io/pokepicker/main.f7eb02c8f6973fbd.js": "0f3cb784b17e4ddaa54ec991b0a4a6ca21e85208",
+    "https://hurnhu.github.io/pokepicker/manifest.webmanifest": "2b3cb9698d8f8a7914f26f5388087dd00d870ac9",
+    "https://hurnhu.github.io/pokepicker/polyfills.7fa47ac511bb52d7.js": "6c20f112c112c881baa56c221aa066039711d6c7",
+    "https://hurnhu.github.io/pokepicker/runtime.97728a8d9c1e7cda.js": "3ff3959597ae3bfa259dbb4664bd6f0ba0e82285",
+    "https://hurnhu.github.io/pokepicker/styles.5cf25525eeb0aad3.css": "02d5df7338f00ab16c17b9f396c7a31ce93405d3"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ],
+  "navigationRequestStrategy": "performance"
+}

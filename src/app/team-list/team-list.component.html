@@ -1,6 +1,8 @@
 
 
-    <span *ngFor="let team of this.teamList | async">
+    <span *ngFor="let team of this.teamList | async; let i = index">
+        <button class="btn btn-success">Load</button>
+        <button class="btn btn-error" (click)="deleteTeam(i)">Delete</button>
         <team-card [team]="team"></team-card>
         <hr/>
     </span>

@@ -9,6 +9,7 @@ import { TeamService } from '../team.service';
 })
 export class TeamListComponent implements OnInit {
 
+
   teamList: Observable<any>
 
   constructor(private teamService:TeamService) {
@@ -20,5 +21,7 @@ export class TeamListComponent implements OnInit {
     this.teamService.loadTeams()
 
   }
-
+  deleteTeam(teamToDelete: number) {
+    this.teamService.deleteTeamByIndex(teamToDelete)
+  }
 }

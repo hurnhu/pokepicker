@@ -20,7 +20,7 @@ export class TeamService {
     return this.teams.asObservable();
   }
 
-  getTeamFromStorage():any {
+  getTeamFromStorage():Array<object> {
     return JSON.parse(localStorage.getItem("saved-teams")!);
   }
 
@@ -38,4 +38,12 @@ export class TeamService {
     
     this.teams.next(savedTeams);
   }
+
+  deleteTeamByIndex(index: number){
+    let teamsFromStorage = this.getTeamFromStorage()
+    teamsFromStorage.splice(index, 1)
+    localStorage.setItem('saved-teams', JSON.stringify(teamsFromStorage));
+    this.teams.next(teamsFromStorage);
+  }
+
 }
